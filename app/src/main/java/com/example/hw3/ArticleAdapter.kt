@@ -13,23 +13,9 @@ class ArticleAdapter(
     override fun getItemCount(): Int = articles.size
 
     override fun createFragment(position: Int): Fragment {
-        val fragment = MainFragment()
         val current = articles[position]
-        fragment.arguments = Bundle().apply {
-            putString(TITLE, current.title)
-            putString(DESCRIPTION, current.description)
-            putString(CAPTION, current.caption)
-        }
-//
-//        MainFragment.newInstance(current).apply {
-//            arguments = bundleOf(
-//                TITLE to current.title,
-//                DESCRIPTION to current.description,
-//                CAPTION to current.caption
-//                )
-//        }
 
-        return fragment
+        return MainFragment.newInstance(current)
     }
 
 }

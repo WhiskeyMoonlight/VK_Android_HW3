@@ -8,6 +8,8 @@
     <string name="description">article_description</string>
     <string name="contents">article_contents</string>
     <string name="content_description_image">Image</string>
+    <string name="comments">Комментарии</string>
+    <string name="share">Поделиться</string>
 
 
 </resources>
