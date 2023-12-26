@@ -6,7 +6,7 @@
 
 
     <GridLayout
-        android:id="@+id/navbar"
+        android:id="@+id/navbar_fragment"
         android:layout_width="match_parent"
         android:layout_height="61dp"
         android:background="@drawable/bar"

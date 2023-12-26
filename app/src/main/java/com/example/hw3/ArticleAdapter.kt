@@ -1,20 +1,35 @@
 package com.example.hw3
 
 import android.os.Bundle
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class ArticleAdapter(
-    fragment: FragmentActivity,
-    ): FragmentStateAdapter(fragment) {
-    override fun getItemCount(): Int = 3
+    fragment: MainActivity,
+    private val articles: List<ArticleResponse>
+): FragmentStateAdapter(fragment) {
+
+    override fun getItemCount(): Int = articles.size
 
     override fun createFragment(position: Int): Fragment {
         val fragment = MainFragment()
+        val current = articles[position]
         fragment.arguments = Bundle().apply {
-            putInt(ID, position + 1)
+            putString(TITLE, current.title)
+            putString(DESCRIPTION, current.description)
+            putString(CAPTION, current.caption)
         }
+//
+//        MainFragment.newInstance(current).apply {
+//            arguments = bundleOf(
+//                TITLE to current.title,
+//                DESCRIPTION to current.description,
+//                CAPTION to current.caption
+//                )
+//        }
+
         return fragment
     }
+
 }
